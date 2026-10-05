@@ -60,6 +60,22 @@ Structured self-study notes on **Uncrewed Surface Vehicle (USV)** systems integr
 
 ## 2. The end-to-end system
 
+```mermaid
+flowchart LR
+  S[GNSS / IMU / radar] --> V[Validity and time checks]
+  V --> E[State estimate]
+  E --> P[Planning and limits]
+  P --> C[Control authority]
+  C --> A[Steering / propulsion]
+  A --> F[Actual motion and feedback]
+  F --> E
+  O[Remote operator] --> C
+  L[Link health] --> C
+```
+
+*Explanatory learning diagram; not a record of a vessel implementation.*
+
+
 A mission from launch point to work area runs through these steps:
 
 1. Receive the mission and required route.
@@ -350,6 +366,21 @@ Links may be cellular, radio or satellite, depending on area and mission.
 - Two links are not truly independent if they share the same router or power source without mitigation.
 
 ## 19. Scenario: backup link up, navigation data missing
+
+```mermaid
+flowchart TD
+  A[Backup link is up] --> B{Fresh navigation data?}
+  B -->|Yes| C[Validate source / units / timing]
+  B -->|No| D[Check producer and gateway]
+  D --> E[Trace route / VPN / firewall]
+  E --> F[Check subscriptions / MTU]
+  F --> G[Compare captures at both ends]
+  G --> H[Verify application reception]
+  H --> C
+```
+
+*Hypothetical diagnosis workflow. Link reachability alone does not prove application data validity.*
+
 
 A good exercise in layer-by-layer diagnosis:
 
