@@ -8,6 +8,17 @@ Structured self-study notes on **Uncrewed Surface Vehicle (USV)** systems integr
 
 ---
 
+## Visual learning guide
+
+Four explanatory diagrams connect the topics below. They are learning aids, not vessel implementation evidence.
+
+- [NMEA 2000 backbone and termination](docs/visual-guide.md#nmea-2000)
+- [Sensor validity and fusion](docs/visual-guide.md#sensor-fusion)
+- [Network data responsibilities](docs/visual-guide.md#network-data-flows)
+- [Integration fault isolation](docs/visual-guide.md#fault-isolation)
+
+![Navigation validity and state estimation](docs/visuals/sensor-fusion.svg)
+
 ## Contents
 
 1. [Terminology: uncrewed, remote-controlled, autonomous](#1-terminology)
